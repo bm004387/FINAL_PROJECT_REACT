@@ -7,7 +7,7 @@ class CreateBoard extends Component {
         super(props);
 
         this.state = {
-            bno: this.props.match.param.bno,
+            bno: this.props.match.params.bno,
             title: '',
             content: '',
             writer: '',
@@ -59,7 +59,7 @@ class CreateBoard extends Component {
         if (this.state.bno === '_create') {
             return <h3 className="text-center">새글을 작성해주세요</h3>
         } else {
-            return <h3 className="text-center">{this.state.bno}글을 수정 합니다.</h3>
+            return <h3 className="text-center">{this.state.title}글을 수정 합니다.</h3>
         }
     }
     componentDidMount() {
@@ -73,7 +73,8 @@ class CreateBoard extends Component {
                 this.setState({
                         title: rt_Board.title,
                         content: rt_Board.content,
-                        writer: rt_Board.writer
+                        writer: rt_Board.writer,
+                        updateDate: rt_Board.updateDate
                     });
             });
         }
@@ -81,34 +82,33 @@ class CreateBoard extends Component {
 
 
     render() {
-        if(this.state.title == null){
-            alert("널")
-        }
         return (
             <div>
                 <div className = "container">
                     <div className = "row">
                         <div className = "card col-md-6 offset-md-3 offset-md-3">
-                            <h3 className="text-center">새글을 작성해주세요</h3>
+                            {
+                               this.getTitle()
+                            }
                             <div className = "card-body">
                                 <form>
                                     <div className = "form-group">
-                                        <label> Title </label>
+                                        <label> 제목 </label>
                                         <input type="text" placeholder="title" name="title" className="form-control" 
                                         value={this.state.title} onChange={this.changeTitleHandler}/>
                                     </div>
                                     <div className = "form-group">
-                                        <label> Content  </label>
+                                        <label> 내용  </label>
                                         <textarea placeholder="content" name="content" className="form-control" 
                                         value={this.state.content} onChange={this.changeContentHandler}/>
                                     </div>
                                     <div className = "form-group">
-                                        <label> writer  </label>
+                                        <label> 작성자  </label>
                                         <input placeholder="writer" name="writer" className="form-control" 
                                         value={this.state.writer} onChange={this.changeWriterHandler}/>
                                     </div>
                                     <button className="btn btn-success" onClick={this.createBoard}>Save</button>
-                                    <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button>
+                                    <button className="btn btn-danger" onClick={this.cancel.bind(this)} >Cancel</button>
                                 </form>
                             </div>
                         </div>

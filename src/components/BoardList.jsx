@@ -4,6 +4,7 @@ import ReactBoardService from '../service/ReactBoardService'
 class BoardList extends Component {
     constructor(props){
         super(props)
+
         this.state = {
             rt_board:[]
         }
@@ -21,7 +22,7 @@ class BoardList extends Component {
     }
 
     readBoard(bno){
-            this.props.history.push(`/read-board/${bno}`);
+        this.props.history.push(`/read-board/${bno}`);
     }
 
     render() {
