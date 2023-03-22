@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'Dovemayo_gothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+#navbarNav{
+	justify-content: space-between;
+}
+#navbarNav li{
+    display: flex;
+    align-items: center;
+	margin: 10px;
+	font-size: 20px;
+}
+#navbarNav li a{
+	color: #000; 
+}
+.hdnav{
+	background: #fff;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+}
+.header{
+	height: 200px;
+}
+.d-flex{
+	margin-bottom: 0 !important;
+}
+a{
+	font-family: 'Dovemayo_gothic';
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#cartlistBtn{
+	border:none;
+	background-color:white;
+	margin-left:0.5rem;
+	font-family: 'Dovemayo_gothic';
+}
+@media screen and (max-width: 991px){
+	.header{
+		height: 100px;
+	}
+	.hdnav{
+		flex-direction: row !important;
+	}
+	.logo{
+		margin-left: -60px;
+	}
+}
+@media screen and (max-width: 576px){
+	.header{
+		height: 80px;
+	}
+	.logo img{
+		width: 200px;
+	}
+	.hdnav button{
+		width: 50px;
+		height: 40px;
+		padding: 0;
+	}
+	.hdnav > button > span{
+		width: 30px;
+		height: 30px;
+	}
+}

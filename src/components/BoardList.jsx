@@ -38,7 +38,6 @@ class BoardList extends Component {
                             <tr>
                                 <th>글 번호</th>
                                 <th>제목</th>
-                                <th>내용</th>
                                 <th>작성자</th>
                                 <th>작성일</th>
                                 <th>수정일</th>
@@ -51,7 +50,6 @@ class BoardList extends Component {
                                     <tr key={rt_board.bno}>
                                         <td>{rt_board.bno}</td>
                                         <td><a onClick={() => this.readBoard(rt_board.bno)}>{rt_board.title}</a></td>
-                                        <td>{rt_board.content}</td>
                                         <td>{rt_board.writer}</td>
                                         <td>{rt_board.regDate}</td>
                                         <td>{rt_board.updateDate}</td>

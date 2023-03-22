@@ -42,10 +42,12 @@ class CreateBoard extends Component {
         console.log("rt_Board => "+ JSON.stringify(rt_Board));
         if (this.state.bno === '_create') {
             ReactBoardService.createBoard(rt_Board).then(res => {
+                alert("게시글을 작성하시겠습니까?")
                 this.props.history.push('/board');
             });
         } else{
             ReactBoardService.updateBoard(this.state.bno, rt_Board).then(res=>{
+                alert("게시글을 수정하시겠습니까?")
                 this.props.history.push('/board');
             })
         }
