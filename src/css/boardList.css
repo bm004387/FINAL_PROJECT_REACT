@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Dovemayo_gothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+h2{
+    text-align: center;
+    margin: 50px;
+    font-family: 'Dovemayo_gothic';
+}
+table{
+    text-align: center;
+}
+thead > tr > th{
+    font-family: 'Dovemayo_gothic';
+}
+
+thead > tr > th:nth-child(1){
+    width: 5%;
+}
+thead > tr > th:nth-child(2){
+    width: 67%;
+}
+thead > tr > th:nth-child(3){
+    width: 8%;
+}
+thead > tr > th:nth-child(4){
+    width: 10%;
+}
+thead > tr > th:nth-child(5){
+    width: 10%;
+}

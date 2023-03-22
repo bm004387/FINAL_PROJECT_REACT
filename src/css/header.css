@@ -13,17 +13,32 @@
 	margin: 10px;
 	font-size: 20px;
 }
-#navbarNav li a{
+.me-auto > .nav-link{
+	color: #000 !important; 
+	font-size: 20px;
+	margin: 10px;
+}
+.loginForm a{
 	color: #000; 
+	font-size: 20px;
+	margin: 10px;
+}
+#basic-navbar-nav{
+	width: 100%;
+	justify-content: space-between;
+	background-color: lightblue;
+}
+#basic-nav-dropdown{
+	color: #000; 
+	font-size: 20px;
+	margin: 10px;
 }
 .hdnav{
 	background: #fff;
 	z-index: 10;
 	display: flex;
 	flex-direction: column;
-}
-.header{
-	height: 200px;
+	padding: 0;
 }
 .d-flex{
 	margin-bottom: 0 !important;
