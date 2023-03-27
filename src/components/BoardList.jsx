@@ -29,13 +29,17 @@ class BoardList extends Component {
 
     render() {
         return (
-            <Container>
-                <div>
-                    <h2>홍보게시판</h2>
-                    <div className='row'>
+                <>
+                    <h2 className="title">
+                            <span class="title-word title-word-1">홍 </span>
+                            <span class="title-word title-word-2">보 </span>
+                            <span class="title-word title-word-3">게 </span>
+                            <span class="title-word title-word-4">시 </span>
+                            <span class="title-word title-word-5">판 </span>
+                    </h2>
+                    <div className='row col-md-13 insertBtn'>
                         <button className='btn btn-primary' onClick={this.createBoard}>글작성</button>
                     </div>
-                    <div className='row'>
                         <table className='table table-striped table-bordered'>
                             <thead>
                                 <tr>
@@ -61,9 +65,7 @@ class BoardList extends Component {
                                 }
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </Container>
+                    </>
         );
     }
 }

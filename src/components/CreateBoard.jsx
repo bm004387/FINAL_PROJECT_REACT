@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import ReactBoardService from '../service/ReactBoardService';
+import Table from 'react-bootstrap/Table';
+import '../css/createBoard.css'
+import { right } from '@popperjs/core';
 
 class CreateBoard extends Component {
 
@@ -39,7 +42,6 @@ class CreateBoard extends Component {
             regDate: this.state.regDate,
             updateDate: this.state.updateDate
         };
-        console.log("rt_Board => "+ JSON.stringify(rt_Board));
         if (this.state.bno === '_create') {
             ReactBoardService.createBoard(rt_Board).then(res => {
                 alert("게시글을 작성하시겠습니까?")
@@ -59,9 +61,21 @@ class CreateBoard extends Component {
 
     getTitle() {
         if (this.state.bno === '_create') {
-            return <h3 className="text-center">새글을 작성해주세요</h3>
+            return <h2 className="title">
+                        <span class="title-word title-word-1">게 </span>
+                        <span class="title-word title-word-2">시 </span>
+                        <span class="title-word title-word-3">글 </span>
+                        <span class="title-word title-word-4">작 </span>
+                        <span class="title-word title-word-5">성 </span>
+                    </h2>
         } else {
-            return <h3 className="text-center">{this.state.title}글을 수정 합니다.</h3>
+            return <h2 className="title">
+                        <span class="title-word title-word-1">{this.state.title} </span>
+                        <span class="title-word title-word-2">글 </span>
+                        &nbsp;
+                        <span class="title-word title-word-3">수 </span>
+                        <span class="title-word title-word-4">정 </span>
+                    </h2>
         }
     }
     componentDidMount() {
@@ -70,7 +84,6 @@ class CreateBoard extends Component {
         } else {
             ReactBoardService.getOneBoard(this.state.bno).then( (res) => {
                 let rt_Board = res.data;
-                console.log("board => "+ JSON.stringify(rt_Board));
                 
                 this.setState({
                         title: rt_Board.title,
@@ -85,39 +98,34 @@ class CreateBoard extends Component {
 
     render() {
         return (
-            <div>
                 <div className = "container">
-                    <div className = "row">
-                        <div className = "card col-md-6 offset-md-3 offset-md-3">
                             {
                                this.getTitle()
                             }
                             <div className = "card-body">
                                 <form>
-                                    <div className = "form-group">
-                                        <label> 제목 </label>
-                                        <input type="text" placeholder="title" name="title" className="form-control" 
-                                        value={this.state.title} onChange={this.changeTitleHandler}/>
+                                    <Table striped bordered hover>
+                                        <tr>
+                                            <th>제목</th>
+                                            <td><input type="text" placeholder="title" name="title" className="form-control" 
+                                            value={this.state.title} onChange={this.changeTitleHandler}/></td>
+                                            <th>이름</th>
+                                            <td><input placeholder="writer" name="writer" className="form-control" 
+                                            value={this.state.writer} onChange={this.changeWriterHandler}/></td>
+                                        </tr>
+                                        <tr>
+                                            <th>내용</th>
+                                            <td colspan="3"><textarea placeholder="content" name="content" className="form-control" rows={10} cols={30}
+                                            value={this.state.content} onChange={this.changeContentHandler}/></td>
+                                        </tr>
+                                    </Table>
+                                    <div className='btnForm'>
+                                        <button className="btn btn-success" onClick={this.createBoard} style={{marginRight:"10px"}}>완료</button>
+                                        <button className="btn btn-danger" onClick={this.cancel.bind(this)} >취소</button>
                                     </div>
-                                    <div className = "form-group">
-                                        <label> 내용  </label>
-                                        <textarea placeholder="content" name="content" className="form-control" 
-                                        value={this.state.content} onChange={this.changeContentHandler}/>
-                                    </div>
-                                    <div className = "form-group">
-                                        <label> 작성자  </label>
-                                        <input placeholder="writer" name="writer" className="form-control" 
-                                        value={this.state.writer} onChange={this.changeWriterHandler}/>
-                                    </div>
-                                    <button className="btn btn-success" onClick={this.createBoard}>Save</button>
-                                    <button className="btn btn-danger" onClick={this.cancel.bind(this)} >Cancel</button>
                                 </form>
                             </div>
-                        </div>
-                    </div>
                 </div>
-
-            </div>
         );
     }
 }
