@@ -41,7 +41,7 @@ constructor(props){
                   </NavDropdown>
                 </Nav>
                 <Nav className='loginForm'>
-					<Nav.Link href="http://192.168.0.149:9008/login.do">로그인</Nav.Link>
+					<Nav.Link href="http://192.168.0.149:9008/login.do">로그아웃</Nav.Link>
                 </Nav>
               </Navbar.Collapse>
             </Container>
